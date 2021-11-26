@@ -236,7 +236,7 @@ class _DetailsState extends State<Details> {
 
       EpubViewer.setConfig(
         identifier: 'androidBook',
-        themeColor: Theme.of(context).accentColor,
+        themeColor: Theme.of(context).colorScheme.secondary,
         scrollDirection: EpubScrollDirection.VERTICAL,
         enableTts: false,
         allowSharing: true,
@@ -256,14 +256,14 @@ class _DetailsState extends State<Details> {
 
   _buildDownloadReadButton(DetailsProvider provider, BuildContext context) {
     if (provider.downloaded) {
-      return FlatButton(
+      return MaterialButton(
         onPressed: () => openBook(provider),
         child: Text(
           'Read Book',
         ),
       );
     } else {
-      return FlatButton(
+      return MaterialButton(
         onPressed: () => provider.downloadFile(
           context,
           widget.entry.link![3].href!,
